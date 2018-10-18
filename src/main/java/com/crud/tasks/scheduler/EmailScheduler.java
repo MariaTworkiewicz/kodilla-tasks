@@ -25,15 +25,16 @@ public class EmailScheduler {
     //@Scheduled(cron="0 0 10 * * *")
     @Scheduled(fixedDelay = 10000)
     private void sendInformationEmail(){
-
+        long size = taskRepository.count();
+        String taskOrTasks = size >=0 ? " tasks" : " task";
         simpleEmailService.send(new Mail(
                 adminConfig.getAdminMail(),
                 SUBJECT,
-                "Currently in database you got: " + taskOrTasks()
+                "Currently in database you got: " + size + taskOrTasks/*taskOrTasks()*/
         ));
     }
 
-    private String taskOrTasks(){
+   /* private String taskOrTasks(){
         long size = taskRepository.count();
         if(size > 1){
             return size + " tasks";
@@ -42,5 +43,5 @@ public class EmailScheduler {
         } else {
             return "no tasks";
         }
-    }
+    }*/
 }
