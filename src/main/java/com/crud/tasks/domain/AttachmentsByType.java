@@ -6,12 +6,23 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
+//@AllArgsConstructor
+//@NoArgsConstructor
+//@Getter
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class AttachmentsByType {
 
     @JsonProperty("trello")
     private Trello trello;
+
+    public AttachmentsByType(Trello trello) {
+        this.trello = trello;
+    }
+
+    public AttachmentsByType() {
+    }
+
+    public Trello getTrello() {
+        return trello;
+    }
 }

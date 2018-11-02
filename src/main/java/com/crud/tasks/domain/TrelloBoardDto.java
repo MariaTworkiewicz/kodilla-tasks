@@ -10,9 +10,9 @@ import lombok.Setter;
 import java.util.List;
 
 //@Getter
-//@Setter
+@Setter
 //@AllArgsConstructor
-//@NoArgsConstructor
+@NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class TrelloBoardDto {
     @JsonProperty("name")
@@ -28,9 +28,6 @@ public class TrelloBoardDto {
         this.name = name;
         this.id = id;
         this.lists = lists;
-    }
-
-    public TrelloBoardDto() {
     }
 
     public String getName() {
@@ -53,7 +50,4 @@ public class TrelloBoardDto {
         this.id = id;
     }
 
-    public void setLists(List<TrelloListDto> lists) {
-        this.lists = lists;
-    }
 }

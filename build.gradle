@@ -30,6 +30,9 @@ dependencies {
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 	compile('org.projectlombok:lombok:1.18.2')
     compile('org.springframework.boot:spring-boot-starter-mail:2.0.5.RELEASE')
+	compile('org.springframework.boot:spring-boot-starter-actuator')
+	compile('org.springframework.boot:spring-boot-starter-mail')
+
 	compile ('mysql:mysql-connector-java:8.0.12')
 	//compile ('org.postgresql:postgresql')
 
@@ -38,4 +41,7 @@ dependencies {
     //Swagger
     compile('io.springfox:springfox-swagger2:2.7.0')
     compile('io.springfox:springfox-swagger-ui:2.7.0')
+
+	compile('com.google.code.gson:gson:2.8.2')
+
 }
