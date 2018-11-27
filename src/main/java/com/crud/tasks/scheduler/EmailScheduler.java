@@ -23,15 +23,20 @@ public class EmailScheduler {
     private AdminConfig adminConfig;
 
     @Scheduled(cron="0 0 10 * * *")
-    //@Scheduled(fixedDelay = 10000)
+    @Scheduled(fixedDelay = 10000)
     private void sendInformationEmail(){
-        long size = taskRepository.count();
+        simpleEmailService.sendDailyMail(new Mail(
+                adminConfig.getAdminMail(),
+                SUBJECT,
+                "Your daily update email."));
+
+        /*long size = taskRepository.count();
         String taskOrTasks = size >=0 ? " tasks" : " task";
         simpleEmailService.send(new Mail(
                 adminConfig.getAdminMail(),
                 SUBJECT,
-                "Currently in database you got: " + size + taskOrTasks/*taskOrTasks()*/
-        ));
+                "Currently in database you got: " + size + taskOrTasks*//*taskOrTasks()*//*
+        ));*/
     }
 
    /* private String taskOrTasks(){
