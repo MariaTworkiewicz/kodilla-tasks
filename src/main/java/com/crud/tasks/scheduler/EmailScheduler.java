@@ -23,7 +23,7 @@ public class EmailScheduler {
     private AdminConfig adminConfig;
 
     @Scheduled(cron="0 0 10 * * *")
-    @Scheduled(fixedDelay = 10000)
+    //@Scheduled(fixedDelay = 10000)
     private void sendInformationEmail(){
         simpleEmailService.sendDailyMail(new Mail(
                 adminConfig.getAdminMail(),
